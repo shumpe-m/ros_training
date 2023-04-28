@@ -1,8 +1,8 @@
 # docker build -t ros2:dashing .
-FROM ubuntu:18.04
+FROM ubuntu:22.04
 ENV DEBIAN_FRONTEND noninteractive
 
-ENV ROS_DISTRO dashing
+ENV ROS_DISTRO humble
 
 # Locale
 RUN apt-get update && apt-get install -y locales && \
@@ -22,7 +22,7 @@ RUN apt-get update && \
     apt-get update
 
 # ROS2 pkg
-RUN export ROS_DISTRO=dashing && \
+RUN export ROS_DISTRO=humble && \
     apt-get install -y ros-$ROS_DISTRO-desktop 
 
 RUN apt-get update && apt-get install -y \
@@ -59,6 +59,8 @@ RUN rosdep init && \
 RUN apt-get install --no-install-recommends -y \
   libasio-dev \
   libtinyxml2-dev
+
+RUN mkdir /root/workspace
 
 RUN cd /root/workspace \
     && git clone https://github.com/takasehideki/ros_study.git

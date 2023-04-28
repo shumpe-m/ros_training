@@ -1,4 +1,4 @@
-FROM osrf/ros:melodic-desktop-full
+FROM osrf/ros:noetic-desktop-full
 
 ENV NVIDIA_VISIBLE_DEVICES \
     ${NVIDIA_VISIBLE_DEVICES:-all}
@@ -17,8 +17,8 @@ RUN apt-get update && apt-get install -y \
     unzip \
     git \
     iputils-ping net-tools \
-    python-tk \
-    python-pip
+    python3-tk \
+    python3-pip
 
 #####################
 ### INSTALL CMAKE ###
@@ -37,17 +37,16 @@ RUN git clone https://gitlab.kitware.com/cmake/cmake.git \
 ### INSTALL Universal_Robots_ROS_Driver ###
 ###########################################
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    python-rospkg \
-    python-catkin-pkg \
-    python-rosinstall \
-    python-rosinstall-generator \
-    python-rosdep \
-    python-catkin-tools \
-    ros-melodic-moveit-commander \
-    python \
-    ros-melodic-universal-robots \
+    python3-rospkg \
+    python3-catkin-pkg \
+    python3-rosinstall \
+    python3-rosinstall-generator \
+    python3-rosdep \
+    python3-catkin-tools \
+    ros-noetic-moveit-commander \
+    python3 \
+    ros-noetic-universal-robots \
     build-essential
-
 
 
 RUN /bin/bash -c "source /opt/ros/melodic/setup.bash"

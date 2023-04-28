@@ -1,2 +1,2 @@
 #!/bin/bash
-docker build ./ --force-rm=true -t ros2:dashing
+docker build ./ --force-rm=true -t ros2:humble
