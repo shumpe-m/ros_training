@@ -49,7 +49,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential
 
 
-RUN /bin/bash -c "source /opt/ros/melodic/setup.bash"
+RUN /bin/bash -c "source /opt/ros/noetic/setup.bash"
 RUN mkdir -p /root/workspace/catkin_ws/src
 RUN cd /root/workspace \
     && git clone https://github.com/takasehideki/ros_study.git
